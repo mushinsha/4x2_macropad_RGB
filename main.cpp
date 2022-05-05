@@ -25,6 +25,7 @@
 #define KEY_PIN6 7
 #define KEY_PIN7 8
 #define KEY_PIN8 9
+#define MODE_SWITCH 14
 
 //////////////////////////////////////////////  
 //LED SECTION
@@ -83,6 +84,7 @@ void setup()
   pinMode(7, INPUT_PULLUP);
   pinMode(8, INPUT_PULLUP);
   pinMode(9, INPUT_PULLUP);
+  pinMode(14, INPUT_PULLUP);
 }
 
 ////////////////////////////////////////////// 
@@ -150,5 +152,64 @@ void loop() {
       Keyboard.write(KEY_F24);
       delay(50);
       }
+////////////////////////////////////////////////////////////////
+//MODE SWITCH OPTIONS
+
+////////////////////////////////////////////// 
+//TOP ROW KEYSTROKE LOOP
+
+  if(digitalRead(14)==LOW)//MODE SWITCH BUTTON
+  {
+    if(digitalRead(2)==LOW)// F19
+      {
+      Keyboard.write(KEY_F19);
+      delay(50);
+      }
+
+  if(digitalRead(5)==LOW)// F20
+      {
+      Keyboard.write(KEY_F20);
+      delay(75);
+      }
+
+  if(digitalRead(8)==LOW)// F21
+      {
+      Keyboard.write(KEY_F21);
+      delay(50);
+      }
+
+  if(digitalRead(9)==LOW)// MEDIA VOLUME UP
+      {
+      Keyboard.write(MEDIA_VOLUME_UP);
+      delay(50);
+      }
+
+////////////////////////////////////////////// 
+//BOTTOM ROW KEYSTROKE LOOP
+
+      if(digitalRead(3)==LOW)// PREVIOUS MEDIA
+      {
+      Consumer.write(MEDIA_PREV);
+      delay(50);
+      }
+      
+  if(digitalRead(4)==LOW)// PLAY & PAUSE MEDIA
+      {
+      Consumer.write(MEDIA_PLAY_PAUSE);
+      delay(50);
+      }
+  
+  if(digitalRead(6)==LOW)// NEXT MEDIA
+      {
+      Consumer.write(MEDIA_NEXT);
+      delay(100);
+      }
+
+  if(digitalRead(7)==LOW)// MEDIA VOLUME DOWN
+      {
+      Consumer.write(MEDIA_VOLUME_DOWN);
+      delay(50);
+      }
+  }
   }
 }
