@@ -85,6 +85,7 @@ void setup()
   pinMode(8, INPUT_PULLUP);
   pinMode(9, INPUT_PULLUP);
   pinMode(14, INPUT_PULLUP);
+  delay(3000);
 }
 
 ////////////////////////////////////////////// 
